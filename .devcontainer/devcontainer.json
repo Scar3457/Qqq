@@ -1,5 +1,10 @@
 {
-  "name": "Minimal Linux Tools",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "postCreateCommand": "./post-create.sh"
+  "name": "ubuntu-gui-vpn",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "bash setup.sh",
+  "mounts": [
+    "source=/dev/net/tun,target=/dev/net/tun,type=bind"
+  ]
 }
